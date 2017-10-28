@@ -24,7 +24,7 @@
                             <th>Spacecraft Name</th>
                             <th>Destination</th>
                             <th>Frequency</th>
-                            <th>Next Arrival</th>
+                            <th>Next Departure</th>
                             <th>Minutes Away</th>
                         </table>
                     </div>
@@ -40,21 +40,21 @@
                         <form>
                             <div class="form-group">
                                 <label for="name">Spacecraft Name</label>
-                                <input type="text" class="form-control" id="craftName">
+                                <input type="text" class="form-control" id="craftName" placeholder="Craft Name">
                             </div>
                             <div class="form-group">
                                 <label for="destination">Destination</label>
-                                <input type="text" class="form-control" id="destination">
+                                <input type="text" class="form-control" id="destination" placeholder="Destination">
                             </div>
                             <div class="form-group">
-                                <label for="firstTime">Leaving At</label>
-                                <input type="text" class="form-control" id="leaving">
+                                <label for="leavingTime">Departure</label>
+                                <input type="time" class="form-control" id="departure">
                             </div>
                             <div class="form-group">
                                 <label for="frequency">Frequency</label>
-                                <input type="text" class="form-control" id="frequency">
+                                <input type="text" class="form-control" id="frequency" placeholder="Frequency Leaving">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
                         </form>
                     </div>
                 </div>
