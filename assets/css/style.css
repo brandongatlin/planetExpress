@@ -5,3 +5,7 @@
 .jumbotron {
 	border: 1px blue solid;
 }
+
+#textTitle, #slogan {
+	text-align: center;
+}
