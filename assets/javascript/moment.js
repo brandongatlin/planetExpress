@@ -16,25 +16,34 @@ var craftName = ""
 var craftDestination = ""
 var craftFrequency
 var nextDeparture
-var minutesAway
+//var minutesAway
 
 $("#submit").on("click", function() {
-            event.preventDefault();
+    event.preventDefault();
 
-            craftName = $("#craftName").val().trim();
-            craftDestination = $("#destination").val().trim();
-            nextDeparture = $("#departure").val().trim();
-            craftFrequency = $("#frequency").val().trim();
+    craftName = $("#craftName").val().trim();
+    craftDestination = $("#destination").val().trim();
+    nextDeparture = $("#departure").val().trim();
+    craftFrequency = $("#frequency").val().trim();
 
-            $("#craftName").val("");
-            $("#destination").val("");
-            $("#departure").val("");
-            $("#frequency").val("");
+    $("#craftName").val("");
+    //$("#destination").val("");
+    //$("#departure").val("");
+    //$("#frequency").val("");
 
-            database.ref().on("child_added", function(snapshot) {
-                var craftName = snapshot.val().craftName;
-console.log(snapshot)
+    database.ref().push({
+        craftName: craftName,
+        craftDestination: craftDestination,
+        craftFrequency: craftFrequency,
+        nextDeparture: nextDeparture
+        //minutesAway: minutesAway
 
-});
+        console.log(craftName)
 
-            })
+    //database.ref().on("child_added", function(snapshot) {
+        //var craftName = snapshot.val().craftName;
+        //console.log(snapshot.)
+
+    });
+
+})
