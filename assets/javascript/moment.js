@@ -12,32 +12,37 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// var craftName = ""
-// var craftDestination = ""
-// var craftFrequency = ""
-// var nextDeparture = ""
-// var minutesAway = ""
+var craftName = ""
+var craftDestination = ""
+var craftFrequency = ""
+var nextDeparture = ""
+var minutesAway = ""
+
 
 $("#submit").on("click", function() {
     event.preventDefault();
 
-    var craftName = $("#craftNameBox").val().trim();
-    var craftDestination = $("#destinationBox").val().trim();
-    var nextDeparture = $("#departureBox").val().trim();
-    var craftFrequency = $("#frequencyBox").val().trim();
-    var minutesAway = ""
+    craftName = $("#craftNameBox").val().trim();
+    craftDestination = $("#destinationBox").val().trim();
+    nextDeparture = $("#departureBox").val().trim();
+    craftFrequency = $("#frequencyBox").val().trim();
+    minutesAway = ""
 
-database.ref().set({
-            craftName: craftName,
-            craftDestination: craftDestination,
-            craftFrequency: craftFrequency,
-            nextDeparture: nextDeparture,
-            minutesAway: minutesAway
+    database.ref().push({
+        craftName: craftName,
+        craftDestination: craftDestination,
+        craftFrequency: craftFrequency,
+        nextDeparture: nextDeparture,
+        minutesAway: minutesAway
 
-        })
+    })
+    database.ref().once("child_added", function(snapshot) {
 
-    database.ref().on("value", function(snapshot) {
-
+        var craftName = (snapshot.val().craftName);
+        var craftDestination = (snapshot.val().craftDestination);
+        var craftFrequency = (snapshot.val().craftFrequency);
+        var nextDeparture = (snapshot.val().nextDeparture);
+        console.log(snapshot.val());
 
         // why the hell is this printing twice?!!!! //
         $("#table").append("<tr><td>" + craftName + "</td><td>" + craftDestination + "</td><td>" + nextDeparture + "</td><td>" + craftFrequency + "</td></tr>");
@@ -49,7 +54,7 @@ database.ref().set({
 
         console.log(craftName)
 
-        
+
     })
 
 });
