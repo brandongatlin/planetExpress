@@ -14,36 +14,41 @@ var database = firebase.database();
 
 var craftName = ""
 var craftDestination = ""
-var craftFrequency
-var nextDeparture
-//var minutesAway
+var craftFrequency = 0
+var nextDeparture = ""
+var minutesAway = 0
 
 $("#submit").on("click", function() {
     event.preventDefault();
 
-    craftName = $("#craftName").val().trim();
-    craftDestination = $("#destination").val().trim();
-    nextDeparture = $("#departure").val().trim();
-    craftFrequency = $("#frequency").val().trim();
+    var craftName = $("#craftNameBox").val().trim();
+    craftDestination = $("#destinationBox").val().trim();
+    nextDeparture = $("#departureBox").val().trim();
+    craftFrequency = $("#frequencyBox").val().trim();
 
-    $("#craftName").val("");
-    //$("#destination").val("");
-    //$("#departure").val("");
-    //$("#frequency").val("");
+    database.ref().on("value", function(snapshot) {
 
-    database.ref().push({
+$("#table").text(snapshot.val().craftName);
+
+
+    $("#craftNameBox").val("");
+    $("#destinationBox").val("");
+    $("#departureBox").val("");
+    $("#frequencyBox").val("");
+
+    database.ref().set({
         craftName: craftName,
         craftDestination: craftDestination,
         craftFrequency: craftFrequency,
-        nextDeparture: nextDeparture
-        //minutesAway: minutesAway
+        nextDeparture: nextDeparture,
+        minutesAway: minutesAway
 
-        console.log(craftName)
 
-    //database.ref().on("child_added", function(snapshot) {
-        //var craftName = snapshot.val().craftName;
-        //console.log(snapshot.)
+
+})
+  })
 
     });
 
-})
+
+
