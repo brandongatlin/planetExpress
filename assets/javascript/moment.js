@@ -15,7 +15,7 @@ var database = firebase.database();
 var craftName = ""
 var craftDestination = ""
 var craftFrequency = ""
-var nextDeparture = ""
+var firstDeparture = ""
 var minutesAway = ""
 
 
@@ -36,25 +36,27 @@ $("#submit").on("click", function() {
         minutesAway: minutesAway
 
     })
-    database.ref().once("child_added", function(snapshot) {
-
-        var craftName = (snapshot.val().craftName);
-        var craftDestination = (snapshot.val().craftDestination);
-        var craftFrequency = (snapshot.val().craftFrequency);
-        var nextDeparture = (snapshot.val().nextDeparture);
-        console.log(snapshot.val());
-
-        // why the hell is this printing twice?!!!! //
-        $("#table").append("<tr><td>" + craftName + "</td><td>" + craftDestination + "</td><td>" + nextDeparture + "</td><td>" + craftFrequency + "</td></tr>");
-
-        $("#craftNameBox").val("");
-        $("#destinationBox").val("");
-        $("#departureBox").val("");
-        $("#frequencyBox").val("");
-
-        console.log(craftName)
 
 
-    })
+})
+
+
+database.ref().on("child_added", function(snapshot) {
+
+    var craftName = (snapshot.val().craftName);
+    var craftDestination = (snapshot.val().craftDestination);
+    var craftFrequency = (snapshot.val().craftFrequency);
+    var nextDeparture = (snapshot.val().nextDeparture);
+    console.log(snapshot.val());
+
+    // why the hell is this printing twice?!!!! //
+    $("#table").append("<tr><td>" + craftName + "</td><td>" + craftDestination + "</td><td>" + nextDeparture + "</td><td>" + craftFrequency + "</td></tr>");
+
+    $("#craftNameBox").val("");
+    $("#destinationBox").val("");
+    $("#departureBox").val("");
+    $("#frequencyBox").val("");
+
+    console.log(craftName)
 
 });
