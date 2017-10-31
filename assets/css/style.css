@@ -9,3 +9,7 @@
 #textTitle, #slogan {
 	text-align: center;
 }
+
+.timeBox {
+	margin: auto;
+}

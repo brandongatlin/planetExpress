@@ -63,6 +63,14 @@ database.ref().on("child_added", function(snapshot) {
 });
 
 // time code
+var now = moment();
+console.log(now)
+
+var stringTime = moment().format("YYYY-MM-DD");
+
+
+
+// from tutoring
 //Creates a string of current date YYYY-MM-DD
 		var stringTime = moment().format("YYYY-MM-DD");
 
