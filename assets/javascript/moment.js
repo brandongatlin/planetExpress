@@ -65,7 +65,7 @@ database.ref().on("child_added", function(snapshot) {
 //Martian Clock
 
 // Make array of Martian numerals to draw from
-martianTime = ["\u01c2", "\u02ad", "|", "<", ">", "^", "\u02e5", "\u030c"]
+martianTime = ["\u01c2", "\u02ad", "|", "<", ">", "^", "\u02e5", "\u030c", "\u07DB", "\u0C66", "\u1526"]
 
 //var computerGuess = letters[Math.floor(Math.random() * letters.length)];
 
