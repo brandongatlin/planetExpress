@@ -62,68 +62,113 @@ database.ref().on("child_added", function(snapshot) {
 
 });
 
-// time code
-var now = moment();
-console.log(now)
+//Martian Clock
 
-var stringTime = moment().format("YYYY-MM-DD");
+// Make array of Martian numerals to draw from
+martianTime = ["\u01c2", "\u02ad", "|", "<", ">", "^", "\u02e5"]
+
+//var computerGuess = letters[Math.floor(Math.random() * letters.length)];
+
+marz = function(){
+    var martianDigitA = martianTime[Math.floor(Math.random() * martianTime.length)]
+    var martianDigitB = martianTime[Math.floor(Math.random() * martianTime.length)]
+    var martianDigitC = martianTime[Math.floor(Math.random() * martianTime.length)]
+
+
+    $("#marsDigit1").html(martianDigitA)
+    $("#marsDigit2").html(martianDigitB)
+    $("#marsDigit3").html(martianDigitC)
+
+}
+
+
+var intervalID = setInterval(marz, 1000);
+
+
+
+
+
+//write to Mars clock
+
+
+
+
+
+
+
+
+// time code
+// var now = moment();
+// console.log(now)
+
+// var stringTime = now.format("YYYY-MM-DD HH:MM");
+// console.log(stringTime)
+
+// // subrtracting time gets to the future //
+// var futureTime = moment(stringTime).subtract(1, "month");
+// console.log(futureTime)
+
+// //Get DIFFERENCT BETWEEN TIMES		
+// var diff = now.diff(futureTime, "days");
+// console.log("diff in days:", diff);
+
 
 
 
 // from tutoring
 //Creates a string of current date YYYY-MM-DD
-		var stringTime = moment().format("YYYY-MM-DD");
+// 		var stringTime = moment().format("YYYY-MM-DD");
 
-		//if we have some in 24 hour time as string
-		var firstTrain = (firstDeparture);
+// 		//if we have some in 24 hour time as string
+// 		var firstTrain = (firstDeparture);
 
-		//creats a moment.js object with current date and time of firstTrain 
-		//can also use " ". ex 2013-02-08 24:00 or 2013-02-08T24:00
-		var test2 = moment(stringTime + "T" + firstTrain);  
-		console.log(test2)
+// 		//creats a moment.js object with current date and time of firstTrain 
+// 		//can also use " ". ex 2013-02-08 24:00 or 2013-02-08T24:00
+// 		var test2 = moment(stringTime + "T" + firstTrain);  
+// 		console.log(test2)
 
-		// displays  12 hour time (hh:mm) and AM or PM
-		console.log("test2: " + test2.format("HH:MM"));
+// 		// displays  12 hour time (hh:mm) and AM or PM
+// 		console.log("test2: " + test2.format("HH:MM"));
 
-		//displays  Month Day 12 hour time (hh:mm) and AM or PM
-		console.log(test2.format("MM DD HH:MM"));	
+// 		//displays  Month Day 12 hour time (hh:mm) and AM or PM
+// 		console.log(test2.format("MM DD HH:MM"));	
 
-		// Gets us current date and time;
-		var now = moment();
-		console.log("now:", now.format("HH:MM")); 
-
-		
-		// set date/ by string-format
-		var day = moment("1995-12-25", "YYYY-MM-DD"); 
-		console.log("day:", day.format("MM DD YYYY"));
+// 		// Gets us current date and time;
+// 		var now = moment();
+// 		console.log("now:", now.format("HH:MM")); 
 
 
-		//Get DIFFERENCT BETWEEN TIMES		
-		var diff = now.diff(test2, "minutes");
-		console.log("diff in minutes:", diff);
+// 		// set date/ by string-format
+// 		var day = moment("1995-12-25", "YYYY-MM-DD"); 
+// 		console.log("day:", day.format("MM DD YYYY"));
 
-//Calculates and returns time of next train arrival.
-function getNextArrival(firstDeparture, frequency) {
-    //Initilizes to first train time.
-    var nextArrival = moment(firstDeparture);
 
-    //While nextArrival is less than current time, add train frequency to nextArrival;
-    while (nextArrival < moment()) {
-        nextArrival.add(frequency, "minutes");
-    };
+// 		//Get DIFFERENCT BETWEEN TIMES		
+// 		var diff = now.diff(test2, "minutes");
+// 		console.log("diff in minutes:", diff);
 
-    return nextArrival;
+// //Calculates and returns time of next train arrival.
+// function getNextArrival(firstDeparture, frequency) {
+//     //Initilizes to first train time.
+//     var nextArrival = moment(firstDeparture);
 
-} //END getNextArrival
+//     //While nextArrival is less than current time, add train frequency to nextArrival;
+//     while (nextArrival < moment()) {
+//         nextArrival.add(frequency, "minutes");
+//     };
 
-function getMinutesAway(time) {
-    //Returns the difference in minutes bewteen trains next arrival and currrnt time.
-    //.diff() always rounds toward zero (down if pos.) so 1.59 would be 1 minute.
-    //adding 'true' argument returns floating point.
-    //Which I round using Math.round so 1.59 would round up to 2.
+//     return nextArrival;
 
-    var minutesAway = Math.round(getNextArrival(time).diff(moment(), "minutes", true));
+// } //END getNextArrival
 
-    return minutesAway
+// function getMinutesAway(time) {
+//     //Returns the difference in minutes bewteen trains next arrival and currrnt time.
+//     //.diff() always rounds toward zero (down if pos.) so 1.59 would be 1 minute.
+//     //adding 'true' argument returns floating point.
+//     //Which I round using Math.round so 1.59 would round up to 2.
 
-} //END getMinutesAway
+//     var minutesAway = Math.round(getNextArrival(time).diff(moment(), "minutes", true));
+
+//     return minutesAway
+
+// } //END getMinutesAway

@@ -13,3 +13,8 @@
 .timeBox {
 	margin: auto;
 }
+
+.marsDigits {
+	float: left;
+	font-size: 28px;
+}

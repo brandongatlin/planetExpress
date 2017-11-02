@@ -25,7 +25,14 @@
             <div class="col-lg-4 col-sm-12">
                 <div class="timeBox" id="timeBox2">
                     <h3>Mars Time</h3>
-                    <iframe src="http://free.timeanddate.com/clock/i5ykqov4/n152/bo2/pd2/th1" frameborder="0" width="59" height="20"></iframe>
+                    <div id="marsClock">
+                        <div class="marsDigits" id="marsDigit1">
+                        </div>
+                        <div class="marsDigits" id="marsDigit2">
+                        </div>
+                        <div class="marsDigits" id="marsDigit3">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12">
@@ -71,7 +78,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="leavingTime">First Departure Time</label>
-                                <input type="time" class="form-control" id="firstDepartureBox">
+                                <input type="start-input" class="form-control" id="firstDepartureBox">
                             </div>
                             <div class="form-group">
                                 <label for="frequency">Frequency</label>
