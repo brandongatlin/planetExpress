@@ -67,8 +67,6 @@ database.ref().on("child_added", function(snapshot) {
 // Make array of Martian numerals to draw from
 martianTime = ["\u01c2", "\u02ad", "|", "<", ">", "^", "\u02e5", "\u030c", "\u07DB", "\u0C66", "\u1526"]
 
-//var computerGuess = letters[Math.floor(Math.random() * letters.length)];
-
 marz = function(){
     var martianDigitA = martianTime[Math.floor(Math.random() * martianTime.length)]
     var martianDigitB = martianTime[Math.floor(Math.random() * martianTime.length)]
@@ -83,15 +81,6 @@ marz = function(){
 
 
 var intervalID = setInterval(marz, 1000);
-
-
-
-
-
-//write to Mars clock
-
-
-
 
 
 
