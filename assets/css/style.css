@@ -12,6 +12,13 @@
 
 .timeBox {
 	margin: auto;
+	/* margin-left: auto;
+	margin-right: auto; */
+	align-items: center;
+
+}
+
+#marsClock {
 }
 
 .marsDigits {
